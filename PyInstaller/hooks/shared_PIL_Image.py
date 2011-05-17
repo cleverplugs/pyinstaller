@@ -18,7 +18,13 @@
 hiddenimports = []
 
 def install_Image(lis):
-    import Image
+    # `import Image` only works if the file `PIL.pth` exists in
+    # site-packages. This is not always the case.
+    try:
+        from PIL import Image
+    except:
+        # just a backup
+        import Image
     # PIL uses lazy initialization.
     # you candecide if you want only the
     # default stuff:
