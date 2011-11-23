@@ -20,9 +20,10 @@
 # We cheat a little and remove the ImageTk import: I assume that if people
 # are really using ImageTk in their application, they will also import it
 # directly.
+
 def hook(mod):
-    for i in range(len(mod.imports)):
-        if mod.imports[i][0] == "ImageTk":
+    for i, m in enumerate(mod.imports):
+        if m[0] == "ImageTk":
             del mod.imports[i]
             break
     return mod
