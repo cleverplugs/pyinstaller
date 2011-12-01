@@ -181,6 +181,7 @@ def __wrap_python(args, kwargs):
         cmdargs.append(_PYOPTS)
 
     cmdargs.extend(args)
+    return cmdargs, kwargs
 
 
 def exec_python(*args, **kwargs):
